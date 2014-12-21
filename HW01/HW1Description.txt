@@ -1,0 +1,33 @@
+[10 points] Document filtering is an application that stores a large number of queries or user profiles and compares these profiles to every incoming document on a feed. Documents that are sufficiently similar to the profile are forwarded to that person via email or some other mechanism.
+Describe the components of a filtering engine using a block diagram of the architecture, a flowchart of the filtering process, and text explaining the function of the components. Use the same level of detail that we gave in the second lectures. For instance, don't just say that the filter needs "text acquisition" but that it needs "format conversion" and "stemming", to name only one example.
+Explain the major differences compared to a search engine. Consider issues such as specific efficiency problems and the usefulness of ranking in a filtering application.
+[5 points] Use the GNU wget utility to crawl the CIS college site, starting with the seed www.ccs.neu.edu
+Installed on departmental machines, or with most Linux distros
+Generate a file of the first 100 unique links you find, restricting the links to web pages and pdfs that are on this site
+Respect robots.txt files and use a delay of 5 seconds between accesses.
+Provide the list of links and the command-line invocation of wget command you used.
+[15 points] Implement your own crawler
+Start crawling with the same seed: www.ccs.neu.edu
+You may use existing libraries to request documents over HTTP.
+You may use existing libraries to parse the content of HTML pages.
+Implement your own code to keep track of what you crawled and decide what to crawl next.
+Extract links from HTML pages. Note that pages of type text/html will not necessarily have URLs that end in .html.
+Record both HTML and PDF pages. PDF pages will be dead ends (sinks). Ignore other document types.
+Repect robots.txt. For ccs.neu.edu, it looks like:
+User-agent: htdig
+Disallow: /tools/checkbot/
+Disallow: /home/ftp/
+Disallow: /home/www/
+
+User-agent: *
+Disallow: /tools/checkbot/
+Disallow: /tools/hypermail/dox/
+Disallow: /home/ftp/
+Disallow: /home/www/
+Disallow: /home/sxhan/com1105/
+Disallow: /course/com1390/roster.pdf 
+Disallow: /home/yimin/grades.html
+Disallow: /home/fceria01/
+Use a five-second delay between requests.
+Crawl until you have 100 unique links. You do not need to keep the page contents.
+Compare to the results you obtained from wget. What differences in crawling strategy can you see?
